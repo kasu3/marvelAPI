@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -85,7 +86,9 @@ const View = ({char}) => {
                         if (i > 9) return;
                         return (
                             <li key={i} className="char__comics-item">
-                                {item.name}
+                                <Link to={`/comics/${item.resourceURI.match(/\d/g).join('').slice(1)}`}>
+                                    {item.name}
+                                </Link>
                             </li>
                         )
                     })

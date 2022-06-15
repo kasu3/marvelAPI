@@ -32,5 +32,19 @@
         &:hover {
             transform: translateY(-5px);
         }
+		&-enter {
+			transform: translateX(-100%) scale(0.9);
+        }
+        &-enter-active {
+			transition: all 700ms;
+			transform: translateX(0%) scale(1);
+        }
+        &-exit {
+			transition: all 700ms;
+        }
+        &-exit-active {
+			transform: translateX(-100%) rotate(60deg);
+			transition: all 700ms;
+        }
     }
 }

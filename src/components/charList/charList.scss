@@ -22,15 +22,32 @@
         padding: 15px;
         cursor: pointer;
         transition: 0.3s transform;
+		border-radius: 10%;
         img {
             width: 200px;
             height: 200px;
             object-fit: cover;
             transform: translate(-15px, -15px);
+			border-top-left-radius: 10%;
+			border-top-right-radius: 10%;
         }
         &_selected {
             box-shadow: 0 5px 20px $main-color;
             transform: translateY(-8px);
+        }
+		&-enter {
+			transform:translateX(-100%) scale(0.8);
+        }
+        &-enter-active {
+			transition: all 500ms;
+			transform: translateX(0%) scale(1);
+        }
+        &-exit {
+			transition: all 500ms;
+        }
+        &-exit-active {
+			transform:translateX(-100%) rotate(60deg);
+			transition: all 500ms;
         }
     }
     &__name {
