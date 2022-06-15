@@ -5,6 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
+import AppBanner from "../appBanner/AppBanner";
 
 import './singleComicPage.scss';
 
@@ -33,11 +34,12 @@ const SingleComicPage = () => {
 	const content = !(loading || error || !comic) ? <View comic={comic}/> : null;
 
     return (
-		<TransitionGroup>
+		<>
+			<AppBanner/>
 			{errorMessage}
 			{spinner}
 			{content}
-		</TransitionGroup>
+		</>
     )
 }
 
@@ -45,7 +47,6 @@ const View = ({comic}) => {
 	const {title, description, pageCount, thumbnail, language, price} = comic;
 
 	return (
-		<CSSTransition timeout={500} classNames='single-comic'>
 			<div className="single-comic">
 				<img src={thumbnail} alt={title} className="single-comic__img"/>
 				<div className="single-comic__info">
@@ -57,7 +58,6 @@ const View = ({comic}) => {
 				</div>
 				<Link to="/comics" className="single-comic__back">Back to all</Link>
 			</div>
-		</CSSTransition>
 	)
 }
 
