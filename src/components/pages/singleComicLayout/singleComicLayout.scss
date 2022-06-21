@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../../style/variables.scss';
 
 .single-comic {
     margin-top: 50px;
@@ -36,18 +36,4 @@
             color: $main-color;
         }
     }
-	&-enter {
-		transform: translateX(-100%) scale(0.8);
-	}
-	&-enter-active {
-		transition: all 500ms;
-		transform: translateX(0%) scale(1);
-	}
-	&-exit {
-		transition: all 500ms;
-	}
-	&-exit-active {
-		transform: translateX(-100%) rotate(60deg);
-		transition: all 500ms;
-	}
 }
