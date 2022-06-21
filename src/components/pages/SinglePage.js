@@ -12,41 +12,37 @@ const SinglePage = ({Component, dataType}) => {
 	const {loading, error, getComic, getCharacter, clearError} = useMarvelService();
 
 	useEffect(() => {
-		updateData();
-	}, [id]);
-    
-    const updateData = () => {
+		updateData()
+	}, [id])
+
+	const updateData = () => {
 		clearError();
-		
+
 		switch (dataType) {
 			case 'comic':
-				getComic(id)
-				.then(onDataLoaded);
+				getComic(id).then(onDataLoaded);
 				break;
 			case 'character':
-				getCharacter(id)
-				.then(onDataLoaded);
-				break;
+				getCharacter(id).then(onDataLoaded);
 		}
+	}
 
-    }
-
-    const onDataLoaded = (data) => {
-        setData(data);
-    }
+	const onDataLoaded = (data) => {
+		setData(data);
+	}
 
 	const errorMessage = error ? <ErrorMessage/> : null;
 	const spinner = loading ? <Spinner/> : null;
 	const content = !(loading || error || !data) ? <Component data={data}/> : null;
 
-    return (
+	return (
 		<>
 			<AppBanner/>
 			{errorMessage}
 			{spinner}
 			{content}
 		</>
-    )
+	)
 }
 
 export default SinglePage;
